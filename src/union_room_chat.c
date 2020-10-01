@@ -679,16 +679,6 @@ static const struct MessageWindowInfo sDisplayStdMessages[] = {
         .hasPlaceholders = FALSE, 
         .useWiderBox = TRUE
     },
-    [STDMESSAGE_ASK_OVERWRITE] = {
-        .text = gText_AlreadySavedFile_Chat, 
-        .boxType = 2, 
-        .x = 0, 
-        .y = 1, 
-        .letterSpacing = 0, 
-        .lineSpacing = 0, 
-        .hasPlaceholders = FALSE, 
-        .useWiderBox = TRUE
-    },
     [STDMESSAGE_SAVING_NO_OFF] = {
         .text = gText_SavingDontTurnOff_Chat, 
         .boxType = 2, 

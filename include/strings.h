@@ -278,7 +278,6 @@ extern const u8 gText_MenuOptionExit[];
 // save menu texts
 extern const u8 gText_ConfirmSave[];
 extern const u8 gText_DifferentSaveFile[];
-extern const u8 gText_AlreadySavedFile[];
 extern const u8 gText_SavingDontTurnOff[];
 extern const u8 gText_PlayerSavedGame[];
 extern const u8 gText_SaveError[];
@@ -2837,7 +2836,6 @@ extern const u8 gText_InputText[];
 extern const u8 gText_ExitingChat[];
 extern const u8 gText_LeaderLeftEndingChat[];
 extern const u8 gText_RegisteredTextChangedOKToSave[];
-extern const u8 gText_AlreadySavedFile_Chat[];
 extern const u8 gText_SavingDontTurnOff_Chat[];
 extern const u8 gText_PlayerSavedGame_Chat[];
 extern const u8 gText_IfLeaderLeavesChatEnds[];
