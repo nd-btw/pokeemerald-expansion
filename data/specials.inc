@@ -160,7 +160,6 @@ gSpecials:: @ 81DBA64
 	def_special PetalburgGymUnlockRoomDoors
 	def_special GetPlayerTrainerIdOnesDigit
 	def_special GetPlayerBigGuyGirlString
-	def_special GetRivalSonDaughterString
 	def_special SetHiddenItemFlag
 	def_special CableCarWarp
 	def_special CableCar
@@ -535,3 +534,4 @@ gSpecials:: @ 81DBA64
 	def_special RemoveRecordsWindow
 	def_special CloseDeptStoreElevatorWindow
 	def_special TrySetBattleTowerLinkType
+	def_special NameRival
