@@ -3,8 +3,8 @@ gText_ConfirmSave:: @ 82C87B4
 	.string "Would you like to save the game?$"
 
 gText_SavingDontTurnOff:: @ 82C8810
-	.string "SAVING…\n"
-	.string "DON'T TURN OFF THE POWER.$"
+	.string "Saving…\n"
+	.string "Don't turn off the power.$"
 
 gText_PlayerSavedGame:: @ 82C8832
 	.string "{PLAYER} saved the game.$"
@@ -22,5 +22,5 @@ gText_SaveError:: @ 82C892A
 	.string "backup memory.$"
 
 gText_SavingDontTurnOffPower:: @ 82C8959
-	.string "SAVING…\n"
-	.string "DON'T TURN OFF THE POWER.$"
+	.string "Saving…\n"
+	.string "Don't turn off the power.$"
