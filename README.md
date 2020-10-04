@@ -1,35 +1,15 @@
-# About this branch
-This branch adds 3 new pockets to the bag based on changes to it from later generations:
-* Medicine (HP, PP and status recovery items)
-* Power-Up (Vitamins and evolution items)
-* Battle Items (X items, Pokédoll/FluffyTail and hold items with battle effects)
+# NDPoké (Working title)
 
-The new order for the pockets is the following:
-* Items
-* Medicine
-* Poké Balls
-* Battle Items
-* Berries
-* Power-Up
-* TMs & HMs
-* Key Items
+This is a custom game based on the Pokémon Emerald decompilation project.
 
-However, it reuses the original pocket sprites until I'm able to get new ones for the new pockets.
+# Game design goals
 
-To-Do:
-* New bag sprites.
-
-# Pokémon Emerald
-This is a decapitalized (all-caps text replaced with proper capitalization) version of the [**pokeemerald**](https://travis-ci.org/pret/pokeemerald) dissasembly, originally made by [**Wyrserth**](https://github.com/Wyrserth) and adapted to the current structure of the project.
-
-As the disassembly continues to develop, I'll try to keep up this branch as updated as possible.
-
-It builds the following ROM:
-
-* pokeemerald.gba `sha1: 8C19F2555E10DFF32A9914CEAC360B018AF42E6C`
+* Streamline the new game experience while still providing solid tutorials for first time players
+* Provide a fixed or adaptive difficulty curve that delivers engaging, strategy-based combat
+* A traditional Pokémon adventure with an interesting cast of characters
+* Satisfying post-game battles and hidden events
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
-
 
 ## See also
 
@@ -47,7 +27,3 @@ Other disassembly and/or decompilation projects:
 * [**Pokémon FireRed and LeafGreen**](https://github.com/pret/pokefirered)
 * [**Pokémon Mystery Dungeon: Red Rescue Team**](https://github.com/pret/pmd-red)
 
-
-## Contacts
-
-You can find us on [Discord](https://discord.gg/d5dubZ3) and [IRC](https://kiwiirc.com/client/irc.freenode.net/?#pret).

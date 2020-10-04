@@ -96,3 +96,19 @@ To compile the `modern` target with this toolchain, the subdirectories `lib`, `i
 * [porymap](https://github.com/huderlem/porymap) for viewing and editing maps
 * [poryscript](https://github.com/huderlem/poryscript) for scripting ([VS Code extension](https://marketplace.visualstudio.com/items?itemName=karathan.poryscript))
 * [Tilemap Studio](https://github.com/Rangi42/tilemap-studio) for viewing and editing tilemaps
+
+# Debugging
+
+To compile a target with a built-in debug menu, pass `DDEBUG=1` as a make argument:
+
+	make DDEBUG=1
+
+To compile a target with debugging symbols, pass `DINFO=1` as a make argument:
+
+	make DINFO=1
+
+To utilize all available CPU cores to compile the `modern` target with a menu & symbols for debugging:
+
+	make -j$(nproc) modern DDEBUG=1 DINFO=1
+
+See mGBA and gdb documentation for more information on debugging.
