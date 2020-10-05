@@ -98,6 +98,7 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMayNorth:: @ 81F93BA
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
 	special NameRival
 	waitstate
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou2, MSGBOX_DEFAULT
@@ -113,6 +114,7 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMaySouth:: @ 81F93E9
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
 	special NameRival
 	waitstate
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou2, MSGBOX_DEFAULT
@@ -128,6 +130,7 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMayWest:: @ 81F9418
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
 	special NameRival
 	waitstate
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou2, MSGBOX_DEFAULT
@@ -142,6 +145,7 @@ LittlerootTown_MaysHouse_2F_EventScript_MeetMayEast:: @ 81F9440
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
 	special NameRival
 	waitstate
 	msgbox RivalsHouse_2F_Text_MayWhoAreYou2, MSGBOX_DEFAULT

@@ -98,6 +98,7 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanNorth:: @ 81F8507
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_BrendanWhoAreYou, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
 	special NameRival
 	waitstate
 	msgbox RivalsHouse_2F_Text_BrendanWhoAreYou2, MSGBOX_DEFAULT
@@ -113,6 +114,7 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanSouth:: @ 81F8536
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_BrendanWhoAreYou, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
 	special NameRival
 	waitstate
 	msgbox RivalsHouse_2F_Text_BrendanWhoAreYou2, MSGBOX_DEFAULT
@@ -128,6 +130,7 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanWest:: @ 81F8565
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_BrendanWhoAreYou, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
 	special NameRival
 	waitstate
 	msgbox RivalsHouse_2F_Text_BrendanWhoAreYou2, MSGBOX_DEFAULT
@@ -143,6 +146,7 @@ LittlerootTown_BrendansHouse_2F_EventScript_MeetBrendanEast:: @ 81F8594
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	msgbox RivalsHouse_2F_Text_BrendanWhoAreYou, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
 	special NameRival
 	waitstate
 	msgbox RivalsHouse_2F_Text_BrendanWhoAreYou2, MSGBOX_DEFAULT
@@ -296,6 +300,43 @@ PlayersHouse_2F_EventScript_Notebook:: @ 81F8656
 
 PlayersHouse_2F_EventScript_GameCube:: @ 81F865F
 	msgbox PlayersHouse_2F_Text_ItsAGameCube, MSGBOX_SIGN
+	end
+
+PlayersHouse_2F_EventScript_SetIntroFlags:: @ 823BF04
+	lockall
+	compare VAR_INTRO_FLAGS_STATE, 1
+	goto_if_eq LittlerootTown_BrendansHouse_2F_EventScript_Ret
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq PlayersHouse_2F_EventScript_SetIntroFlagsMale
+	compare VAR_RESULT, FEMALE
+	goto_if_eq PlayersHouse_2F_EventScript_SetIntroFlagsFemale
+	end
+
+PlayersHouse_2F_EventScript_SetIntroFlagsMale:: @ 823BF20
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
+	setvar VAR_LITTLEROOT_INTRO_STATE, 6
+	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1
+	setvar VAR_INTRO_FLAGS_STATE, 1
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MOM
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_MOM
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_SIBLING
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL
+	setdynamicwarp MAP_LITTLEROOT_TOWN, 255, 3, 10
+	releaseall
+	end
+
+PlayersHouse_2F_EventScript_SetIntroFlagsFemale:: @ 823BF46
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F
+	setvar VAR_LITTLEROOT_INTRO_STATE, 6
+	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 1
+	setvar VAR_INTRO_FLAGS_STATE, 1
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_MOM
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_MOM
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_SIBLING
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL
+	setdynamicwarp MAP_LITTLEROOT_TOWN, 255, 12, 10
+	releaseall
 	end
 
 PlayersHouse_2F_Text_ClockIsStopped: @ 81F8668

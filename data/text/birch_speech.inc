@@ -1,9 +1,6 @@
 gText_Birch_Welcome:: @ 82C897B
-	.string "Hi! Sorry to keep you waiting!\p"
 	.string "Welcome to the world of Pokémon!\p"
-	.string "My name is Birch.\p"
-	.string "But everyone calls me the Pokémon\n"
-	.string "Professor.\p"
+	.string "My name is Professor Birch.\p"
 	.string "$"
 
 gText_Birch_Pokemon:: @ 82C89FB
@@ -12,13 +9,6 @@ gText_Birch_Pokemon:: @ 82C89FB
 	.string "$"
 
 gText_Birch_MainSpeech:: @ 82C8A1F
-	.string "This world is widely inhabited by\n"
-	.string "creatures known as Pokémon.\p"
-	.string "We humans live alongside Pokémon,\n"
-	.string "at times as friendly playmates, and\l"
-	.string "at times as cooperative workmates.\p"
-	.string "And sometimes, we band together\n"
-	.string "and battle others like us.\p"
 	.string "But despite our closeness, we don't\n"
 	.string "know everything about Pokémon.\p"
 	.string "In fact, there are many, many\n"
@@ -44,8 +34,6 @@ gText_Birch_SoItsPlayer:: @ 82C8C1C
 
 gText_Birch_YourePlayer:: @ 82C8C2A
 	.string "Ah, okay!\p"
-	.string "You're {PLAYER}{KUN} who's moving to my\n"
-	.string "hometown of Littleroot.\l"
 	.string "I get it now!\p"
 	.string "$"
 
