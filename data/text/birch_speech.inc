@@ -4,15 +4,15 @@ gText_Birch_Welcome:: @ 82C897B
 	.string "$"
 
 gText_Birch_Pokemon:: @ 82C89FB
-	.string "This is what we call a “Pokémon.”\p"
-	.string "\n"
+	.string "This beautiful creature is\n"
+	.string "known as a “Pokémon.”\l"
 	.string "$"
 
 gText_Birch_MainSpeech:: @ 82C8A1F
-	.string "But despite our closeness, we don't\n"
+	.string "Despite our fondness, we don't\n"
 	.string "know everything about Pokémon.\p"
-	.string "In fact, there are many, many\n"
-	.string "secrets surrounding Pokémon.\p"
+	.string "And there are some people\n"
+	.string "who exploit Pokémon for profit.\p"
 	.string "To unravel Pokémon mysteries,\n"
 	.string "I've been undertaking research.\l"
 	.string "That's what I do.\p"
@@ -34,7 +34,7 @@ gText_Birch_SoItsPlayer:: @ 82C8C1C
 
 gText_Birch_YourePlayer:: @ 82C8C2A
 	.string "Ah, okay!\p"
-	.string "I get it now!\p"
+	.string "Nice to meet you!\p"
 	.string "$"
 
 gText_Birch_AreYouReady:: @ 82C8C7A
@@ -44,6 +44,6 @@ gText_Birch_AreYouReady:: @ 82C8C7A
 	.string "Take courage, and leap into the\n"
 	.string "world of Pokémon where dreams,\l"
 	.string "adventure, and friendships await!\p"
-	.string "Well, I'll be expecting you later.\n"
+	.string "I'll be expecting you later.\n"
 	.string "Come see me in my Pokémon Lab.\p"
 	.string "$"
