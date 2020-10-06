@@ -19,6 +19,8 @@ The following features are present.
 * Pokemon Expansion (up to Gen 7)
 * Item Expansion (up to Gen 7)
 * Battle mode fixed to Set
+* Gen6+ Exp. Share
+* Adjustments to Pokémon and move stats
 * New trainer sprites (WIP)
 * Pick from several window border colors
 * Streamlined new game experience
