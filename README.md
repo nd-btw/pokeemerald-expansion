@@ -9,6 +9,33 @@ This is a custom game based on the Pokémon Emerald decompilation project.
 * A traditional Pokémon adventure with an interesting cast of characters
 * Satisfying post-game battles and hidden events
 
+## Currently implemented features
+
+The following features are present.
+
+* Several bugs in the original game have been fixed
+* The game's entire script and menu have been decapitalized
+* Battle Engine V2
+* Pokemon Expansion (up to Gen 7)
+* Item Expansion (up to Gen 7)
+* Battle mode fixed to Set
+* New trainer sprites (WIP)
+* Pick from several window border colors
+* Streamlined new game experience
+* Name your rival
+* Bag SFX from Pokemon FRLG
+* More organized bag pockets
+* Register key items to L, R, or Select
+* Improved sound engine (less quantization noise)
+* Indoor running
+* Running available from the beginning of the game
+* B button toggles auto-run
+
+Thanks to everyone whose work has contributed to my game.
+* All contributors to pret/pokeemerald
+* DizzyEgg
+* Ghoulslash
+
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
 ## See also
