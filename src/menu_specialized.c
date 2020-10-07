@@ -25,7 +25,6 @@
 #include "window.h"
 #include "constants/berry.h"
 #include "constants/songs.h"
-#include "constants/species.h"
 #include "gba/io_reg.h"
 
 extern const struct CompressedSpriteSheet gMonFrontPicTable[];
@@ -250,7 +249,7 @@ void sub_81D1D04(u8 a0)
     sUnknown_0203CF48[a0] = 0xFF;
 }
 
-static u8 sub_81D1D34(u8 a0)
+static u8 sub_81D1D34(u8 a0) // unused
 {
     return sUnknown_0203CF48[a0];
 }

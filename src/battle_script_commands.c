@@ -16,7 +16,6 @@
 #include "random.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
-#include "constants/species.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/battle_anim.h"
@@ -5023,7 +5022,8 @@ bool32 CanBattlerSwitch(u32 battlerId)
 
         ret = (i != PARTY_SIZE);
     }
-    else if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
+
+    if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
     {
         if (GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
             party = gEnemyParty;
@@ -8898,12 +8898,12 @@ static void Cmd_forcerandomswitch(void)
     s32 i;
     s32 battler1PartyId = 0;
     s32 battler2PartyId = 0;
+    s32 firstMonId;
     s32 lastMonId = 0; // + 1
-    s32 firstMonId = 0;
-    s32 monsCount = 0;
-    struct Pokemon *party = NULL;
+    s32 monsCount;
+    struct Pokemon* party = NULL;
     s32 validMons = 0;
-    s32 minNeeded = 0;
+    s32 minNeeded;
 
     // Swapping pokemon happens in:
     // trainer battles
