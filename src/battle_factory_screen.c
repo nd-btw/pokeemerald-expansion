@@ -1436,7 +1436,7 @@ static void Task_FromSelectScreenToSummaryScreen(u8 taskId)
 
 static void Task_CloseSelectionScreen(u8 taskId)
 {
-    if (sFactorySelectScreen->unk2A0 != TRUE)
+    if (sFactorySelectScreen->unk2A0 == FALSE)
     {
         switch (gTasks[taskId].data[0])
         {
@@ -1465,7 +1465,7 @@ static void Task_CloseSelectionScreen(u8 taskId)
 
 static void Task_HandleSelectionScreenYesNo(u8 taskId)
 {
-    if (sFactorySelectScreen->unk2A0 != TRUE)
+    if (sFactorySelectScreen->unk2A0 == FALSE)
     {
         switch (gTasks[taskId].data[0])
         {
@@ -1530,7 +1530,7 @@ static void Task_HandleSelectionScreenMenu(u8 taskId)
         gTasks[taskId].data[0] = 9;
         break;
     case 9:
-        if (sFactorySelectScreen->unk2A0 != TRUE)
+        if (sFactorySelectScreen->unk2A0 == FALSE)
         {
             Select_ShowMenuOptions();
             sFactorySelectScreen->fromSummaryScreen = FALSE;
@@ -1606,7 +1606,7 @@ static void Task_HandleSelectionScreenMenu(u8 taskId)
 
 static void Task_HandleSelectionScreenChooseMons(u8 taskId)
 {
-    if (sFactorySelectScreen->unk2A0 != TRUE)
+    if (sFactorySelectScreen->unk2A0 == FALSE)
     {
         switch (gTasks[taskId].data[0])
         {
@@ -2301,7 +2301,7 @@ static void Task_FromSwapScreenToSummaryScreen(u8 taskId)
 
 static void Task_CloseSwapScreen(u8 taskId)
 {
-    if (sFactorySwapScreen->unk30 != TRUE)
+    if (sFactorySwapScreen->unk30 == FALSE)
     {
         switch (gTasks[taskId].data[0])
         {
@@ -2352,7 +2352,7 @@ static void Task_HandleSwapScreenYesNo(u8 taskId)
 {
     u16 loPtr, hiPtr;
 
-    if (sFactorySwapScreen->unk30 != TRUE)
+    if (sFactorySwapScreen->unk30 == FALSE)
     {
         switch (gTasks[taskId].data[0])
         {
@@ -2476,14 +2476,14 @@ static void Task_HandleSwapScreenMenu(u8 taskId)
         gTasks[taskId].data[0] = 9;
         break;
     case 9:
-        if (sFactorySwapScreen->unk30 != TRUE)
+        if (sFactorySwapScreen->unk30 == FALSE)
         {
             Swap_ShowMenuOptions();
             gTasks[taskId].data[0] = 3;
         }
         break;
     case 3:
-        if (sFactorySwapScreen->unk30 != TRUE)
+        if (sFactorySwapScreen->unk30 == FALSE)
         {
             if (JOY_NEW(A_BUTTON))
             {
@@ -3765,7 +3765,7 @@ static void Swap_PrintMonCategory(void)
 
 static void Swap_InitActions(u8 id)
 {
-    if (sFactorySwapScreen->fromSummaryScreen != TRUE)
+    if (sFactorySwapScreen->fromSummaryScreen == FALSE)
     {
         switch (id)
         {
@@ -3937,7 +3937,7 @@ static void Task_SwapCantHaveSameMons(u8 taskId)
         }
         break;
     case 2:
-        if (sFactorySwapScreen->unk30 != TRUE)
+        if (sFactorySwapScreen->unk30 == FALSE)
         {
             FillWindowPixelBuffer(5, PIXEL_FILL(0));
             CopyWindowToVram(5, 2);

@@ -415,7 +415,7 @@ static void sub_81C5038(void)
 
 static void sub_81C504C(void)
 {
-    while (MenuHelpers_CallLinkSomething() != TRUE && sub_81C5078() != TRUE && MenuHelpers_LinkSomething() != TRUE);
+    while (MenuHelpers_CallLinkSomething() == FALSE && sub_81C5078() == FALSE && MenuHelpers_LinkSomething() == FALSE);
 }
 
 static bool8 sub_81C5078(void)
@@ -536,7 +536,7 @@ static bool8 sub_81C5238(void)
         gPyramidBagResources->state++;
         break;
     case 1:
-        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        if (FreeTempTileDataBuffersIfPossible() == FALSE)
         {
             LZDecompressWram(gBattleFrontierGfx_PyramidBagTileMap, gPyramidBagResources->tilemapBuffer);
             gPyramidBagResources->state++;
@@ -599,7 +599,7 @@ static void PyramidBag_CopyItemName(u8 *dst, u16 itemId)
 
 static void PyramidBagMoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *list)
 {
-    if (onInit != TRUE)
+    if (onInit == FALSE)
     {
         PlaySE(SE_SELECT);
         sub_81C6F20();
@@ -837,7 +837,7 @@ static void sub_81C5B4C(u8 taskId)
 static void Task_HandlePyramidBagInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    if (MenuHelpers_CallLinkSomething() != TRUE && !gPaletteFade.active)
+    if (MenuHelpers_CallLinkSomething() == FALSE && !gPaletteFade.active)
     {
         if (JOY_NEW(SELECT_BUTTON))
         {
@@ -940,7 +940,7 @@ static void sub_81C5F08(u8 windowId, u8 horizontalCount, u8 verticalCount)
 
 static void HandleFewMenuActionsInput(u8 taskId)
 {
-    if (MenuHelpers_CallLinkSomething() != TRUE)
+    if (MenuHelpers_CallLinkSomething() == FALSE)
     {
         s32 id = Menu_ProcessInputNoWrap();
         switch (id)
@@ -962,7 +962,7 @@ static void HandleFewMenuActionsInput(u8 taskId)
 
 static void HandleMenuActionInput(u8 taskId)
 {
-    if (MenuHelpers_CallLinkSomething() != TRUE)
+    if (MenuHelpers_CallLinkSomething() == FALSE)
     {
         s8 id = Menu_GetCursorPos();
         if (JOY_NEW(DPAD_UP))
@@ -1275,7 +1275,7 @@ static void Task_BeginItemSwap(u8 taskId)
 static void Task_ItemSwapHandleInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    if (MenuHelpers_CallLinkSomething() != TRUE)
+    if (MenuHelpers_CallLinkSomething() == FALSE)
     {
         if (JOY_NEW(SELECT_BUTTON))
         {

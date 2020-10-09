@@ -710,7 +710,7 @@ u8 HandleSavingData(u8 saveType)
 
 u8 TrySavingData(u8 saveType)
 {
-    if (gFlashMemoryPresent != TRUE)
+    if (gFlashMemoryPresent == FALSE)
     {
         gSaveAttemptStatus = SAVE_STATUS_ERROR;
         return SAVE_STATUS_ERROR;
@@ -732,7 +732,7 @@ u8 TrySavingData(u8 saveType)
 
 bool8 sub_8153380(void) // trade.c
 {
-    if (gFlashMemoryPresent != TRUE)
+    if (gFlashMemoryPresent == FALSE)
         return TRUE;
     UpdateSaveAddresses();
     SaveSerializedGame();
@@ -769,7 +769,7 @@ bool8 sub_8153408(void) // trade.c
 
 u8 FullSaveGame(void)
 {
-    if (gFlashMemoryPresent != TRUE)
+    if (gFlashMemoryPresent == FALSE)
         return TRUE;
 
     UpdateSaveAddresses();
@@ -802,7 +802,7 @@ u8 Save_LoadGameData(u8 saveType)
 {
     u8 status;
 
-    if (gFlashMemoryPresent != TRUE)
+    if (gFlashMemoryPresent == FALSE)
     {
         gSaveFileStatus = SAVE_STATUS_NO_FLASH;
         return SAVE_STATUS_ERROR;
@@ -834,7 +834,7 @@ u16 sub_815355C(void)
     struct SaveSection* savSection;
 
     savSection = gFastSaveSection = &gSaveDataBuffer;
-    if (gFlashMemoryPresent != TRUE)
+    if (gFlashMemoryPresent == FALSE)
         return SAVE_STATUS_EMPTY;
     UpdateSaveAddresses();
     GetSaveValidStatus(gRamSaveSectionLocations);

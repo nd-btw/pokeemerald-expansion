@@ -194,7 +194,7 @@ u32 sub_81CDE94(s32 state)
     switch (state)
     {
     case 0:
-        if (sub_81CD3C4() != TRUE)
+        if (sub_81CD3C4() == FALSE)
             return LT_PAUSE;
         return LT_INC_AND_PAUSE;
     case 1:
@@ -278,7 +278,7 @@ u32 sub_81CDE94(s32 state)
         sub_81CE754(2, sub_81CDC84(), TRUE);
         return LT_INC_AND_PAUSE;
     case 13:
-        if (sub_81CE754(3, sub_81CDC84(), TRUE) != TRUE)
+        if (sub_81CE754(3, sub_81CDC84(), TRUE) == FALSE)
             return LT_PAUSE;
         PutWindowTilemap(structPtr->unk1820);
         if (sub_81CDD5C() == TRUE)
@@ -415,7 +415,7 @@ u32 sub_81CE37C(s32 state)
         if (!TryUpdateConditionMonTransitionOn(unkPtr, &structPtr->unk1814))
         {
             ResetConditionSparkleSprites(structPtr->unk28e0);
-            if (sub_81CDD5C() != TRUE && sub_81CDC60() == sub_81CDC50())
+            if (sub_81CDD5C() == FALSE && sub_81CDC60() == sub_81CDC50())
                 return 1;
 
             CreateConditionSparkleSprites(structPtr->unk28e0, structPtr->unk1816, sub_81CDDB0());

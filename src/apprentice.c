@@ -412,7 +412,7 @@ static u16 GetRandomAlternateMove(u8 monId)
                         break;
                     }
                 }
-            } while (shouldUseMove != TRUE);
+            } while (shouldUseMove == FALSE);
         }
         else
         {
@@ -442,7 +442,7 @@ static u16 GetRandomAlternateMove(u8 monId)
                             break;
                         }
                     }
-                } while (shouldUseMove != TRUE);
+                } while (shouldUseMove == FALSE);
             }
         }
 

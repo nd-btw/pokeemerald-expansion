@@ -674,7 +674,7 @@ void UpdateEscapeWarp(s16 x, s16 y)
 {
     u8 currMapType = GetCurrentMapType();
     u8 destMapType = GetMapTypeByGroupAndId(sWarpDestination.mapGroup, sWarpDestination.mapNum);
-    if (IsMapTypeOutdoors(currMapType) && IsMapTypeOutdoors(destMapType) != TRUE)
+    if (IsMapTypeOutdoors(currMapType) && IsMapTypeOutdoors(destMapType) == FALSE)
         SetEscapeWarp(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, -1, x - 7, y - 6);
 }
 
@@ -845,7 +845,7 @@ static void LoadMapFromWarp(bool32 a1)
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
     TryUpdateRandomTrainerRematches(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
-    if (a1 != TRUE)
+    if (a1 == FALSE)
         DoTimeBasedEvents();
     SetSav1WeatherFromCurrMapHeader();
     ChooseAmbientCrySpecies();
@@ -863,7 +863,7 @@ static void LoadMapFromWarp(bool32 a1)
     else
         InitMap();
 
-    if (a1 != TRUE && isIndoors)
+    if (a1 == FALSE && isIndoors)
     {
         UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
         InitSecretBaseAppearance(TRUE);
@@ -912,7 +912,7 @@ static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *pla
         return PLAYER_AVATAR_FLAG_UNDERWATER;
     else if (MetatileBehavior_IsSurfableWaterOrUnderwater(metatileBehavior) == TRUE)
         return PLAYER_AVATAR_FLAG_SURFING;
-    else if (Overworld_IsBikingAllowed() != TRUE)
+    else if (Overworld_IsBikingAllowed() == FALSE)
         return PLAYER_AVATAR_FLAG_ON_FOOT;
     else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_MACH_BIKE)
         return PLAYER_AVATAR_FLAG_MACH_BIKE;
@@ -1161,7 +1161,7 @@ void Overworld_ClearSavedMusic(void)
 
 static void TransitionMapMusic(void)
 {
-    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE)
+    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) == FALSE)
     {
         u16 newMusic = GetWarpDestinationMusic();
         u16 currentMusic = GetCurrentMapMusic();
@@ -1209,7 +1209,7 @@ void TryFadeOutOldMapMusic(void)
 {
     u16 currentMusic = GetCurrentMapMusic();
     u16 warpMusic = GetWarpDestinationMusic();
-    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) != TRUE && warpMusic != GetCurrentMapMusic())
+    if (FlagGet(FLAG_DONT_TRANSITION_MUSIC) == FALSE && warpMusic != GetCurrentMapMusic())
     {
         if (currentMusic == MUS_SURF
             && VarGet(VAR_SKY_PILLAR_STATE) == 2
@@ -1834,7 +1834,7 @@ static bool32 LoadMapInStepsLink(u8 *state)
         (*state)++;
         break;
     case 8:
-        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        if (FreeTempTileDataBuffersIfPossible() == FALSE)
         {
             LoadMapTilesetPalettes(gMapHeader.mapLayout);
             (*state)++;
@@ -1909,7 +1909,7 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
         (*state)++;
         break;
     case 8:
-        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        if (FreeTempTileDataBuffersIfPossible() == FALSE)
         {
             LoadMapTilesetPalettes(gMapHeader.mapLayout);
             (*state)++;
@@ -2013,7 +2013,7 @@ static bool32 ReturnToFieldLink(u8 *state)
         (*state)++;
         break;
     case 7:
-        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        if (FreeTempTileDataBuffersIfPossible() == FALSE)
         {
             LoadMapTilesetPalettes(gMapHeader.mapLayout);
             (*state)++;
@@ -2848,9 +2848,9 @@ bool32 sub_80875C8(void)
 
     if (GetLinkRecvQueueLength() < 2)
         return FALSE;
-    else if (IsUpdateLinkStateCBActive() != TRUE)
+    else if (IsUpdateLinkStateCBActive() == FALSE)
         return FALSE;
-    else if (IsSendingKeysToLink() != TRUE)
+    else if (IsSendingKeysToLink() == FALSE)
         return FALSE;
     else if (sPlayerKeyInterceptCallback == KeyInterCB_DeferToRecvQueue)
         return TRUE;
@@ -2872,9 +2872,9 @@ bool32 sub_8087634(void)
 {
     if (GetLinkSendQueueLength() < 2)
         return FALSE;
-    else if (IsUpdateLinkStateCBActive() != TRUE)
+    else if (IsUpdateLinkStateCBActive() == FALSE)
         return FALSE;
-    else if (IsSendingKeysToLink() != TRUE)
+    else if (IsSendingKeysToLink() == FALSE)
         return FALSE;
     else if (sPlayerKeyInterceptCallback == KeyInterCB_DeferToSendQueue)
         return TRUE;

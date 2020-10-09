@@ -305,7 +305,7 @@ u8 sub_81D1DC0(struct PlayerPCItemPageStruct *page)
 
 static void sub_81D1E7C(s32 itemIndex, bool8 onInit, struct ListMenu *list)
 {
-    if (onInit != TRUE)
+    if (onInit == FALSE)
         PlaySE(SE_SELECT);
 }
 
@@ -828,7 +828,7 @@ static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
 
 static void MoveRelearnerCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu *list)
 {
-    if (onInit != TRUE)
+    if (onInit == FALSE)
         PlaySE(SE_SELECT);
     MoveRelearnerLoadBattleMoveDescription(itemIndex);
     MoveRelearnerMenuLoadContestMoveDescription(itemIndex);

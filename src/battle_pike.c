@@ -1052,12 +1052,12 @@ static u8 GetNextRoomType(void)
     }
 
     // Remove room type candidates that would have no effect on the player's party.
-    if (roomTypesDisabled[PIKE_ROOM_DOUBLE_BATTLE] != TRUE && !AtLeastTwoAliveMons())
+    if (roomTypesDisabled[PIKE_ROOM_DOUBLE_BATTLE] == FALSE && !AtLeastTwoAliveMons())
     {
         roomTypesDisabled[PIKE_ROOM_DOUBLE_BATTLE] = TRUE;
         numRoomCandidates--;
     }
-    if (roomTypesDisabled[PIKE_ROOM_STATUS] != TRUE && !AtLeastOneHealthyMon())
+    if (roomTypesDisabled[PIKE_ROOM_STATUS] == FALSE && !AtLeastOneHealthyMon())
     {
         roomTypesDisabled[PIKE_ROOM_STATUS] = TRUE;
         numRoomCandidates--;
@@ -1066,12 +1066,12 @@ static u8 GetNextRoomType(void)
     // Remove healing room type candidates if healing rooms are disabled.
     if (gSaveBlock2Ptr->frontier.pikeHealingRoomsDisabled)
     {
-        if (roomTypesDisabled[PIKE_ROOM_HEAL_FULL] != TRUE)
+        if (roomTypesDisabled[PIKE_ROOM_HEAL_FULL] == FALSE)
         {
             roomTypesDisabled[PIKE_ROOM_HEAL_FULL] = TRUE;
             numRoomCandidates--;
         }
-        if (roomTypesDisabled[PIKE_ROOM_HEAL_PART] != TRUE)
+        if (roomTypesDisabled[PIKE_ROOM_HEAL_PART] == FALSE)
         {
             roomTypesDisabled[PIKE_ROOM_HEAL_PART] = TRUE;
             numRoomCandidates--;

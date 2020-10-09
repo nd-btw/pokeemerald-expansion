@@ -555,9 +555,9 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
             headerId = GetBattlePikeWildMonHeaderId();
             if (previousMetaTileBehavior != currMetaTileBehavior && !DoGlobalWildEncounterDiceRoll())
                 return FALSE;
-            else if (DoWildEncounterRateTest(gBattlePikeWildMonHeaders[headerId].landMonsInfo->encounterRate, FALSE) != TRUE)
+            else if (DoWildEncounterRateTest(gBattlePikeWildMonHeaders[headerId].landMonsInfo->encounterRate, FALSE) == FALSE)
                 return FALSE;
-            else if (TryGenerateWildMon(gBattlePikeWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE) != TRUE)
+            else if (TryGenerateWildMon(gBattlePikeWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE) == FALSE)
                 return FALSE;
             else if (!TryGenerateBattlePikeWildMon(TRUE))
                 return FALSE;
@@ -570,9 +570,9 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
             headerId = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
             if (previousMetaTileBehavior != currMetaTileBehavior && !DoGlobalWildEncounterDiceRoll())
                 return FALSE;
-            else if (DoWildEncounterRateTest(gBattlePyramidWildMonHeaders[headerId].landMonsInfo->encounterRate, FALSE) != TRUE)
+            else if (DoWildEncounterRateTest(gBattlePyramidWildMonHeaders[headerId].landMonsInfo->encounterRate, FALSE) == FALSE)
                 return FALSE;
-            else if (TryGenerateWildMon(gBattlePyramidWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE) != TRUE)
+            else if (TryGenerateWildMon(gBattlePyramidWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE) == FALSE)
                 return FALSE;
 
             GenerateBattlePyramidWildMon();
@@ -588,7 +588,7 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
                 return FALSE;
             else if (previousMetaTileBehavior != currMetaTileBehavior && !DoGlobalWildEncounterDiceRoll())
                 return FALSE;
-            else if (DoWildEncounterRateTest(gWildMonHeaders[headerId].landMonsInfo->encounterRate, FALSE) != TRUE)
+            else if (DoWildEncounterRateTest(gWildMonHeaders[headerId].landMonsInfo->encounterRate, FALSE) == FALSE)
                 return FALSE;
 
             if (TryStartRoamerEncounter() == TRUE)
@@ -637,7 +637,7 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
                 return FALSE;
             else if (previousMetaTileBehavior != currMetaTileBehavior && !DoGlobalWildEncounterDiceRoll())
                 return FALSE;
-            else if (DoWildEncounterRateTest(gWildMonHeaders[headerId].waterMonsInfo->encounterRate, FALSE) != TRUE)
+            else if (DoWildEncounterRateTest(gWildMonHeaders[headerId].waterMonsInfo->encounterRate, FALSE) == FALSE)
                 return FALSE;
 
             if (TryStartRoamerEncounter() == TRUE)
@@ -706,7 +706,7 @@ bool8 SweetScentWildEncounter(void)
         if (gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS)
         {
             headerId = GetBattlePikeWildMonHeaderId();
-            if (TryGenerateWildMon(gBattlePikeWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, 0) != TRUE)
+            if (TryGenerateWildMon(gBattlePikeWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, 0) == FALSE)
                 return FALSE;
 
             TryGenerateBattlePikeWildMon(FALSE);
@@ -716,7 +716,7 @@ bool8 SweetScentWildEncounter(void)
         if (gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PYRAMID_FLOOR)
         {
             headerId = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
-            if (TryGenerateWildMon(gBattlePyramidWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, 0) != TRUE)
+            if (TryGenerateWildMon(gBattlePyramidWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, 0) == FALSE)
                 return FALSE;
 
             GenerateBattlePyramidWildMon();

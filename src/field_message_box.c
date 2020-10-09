@@ -38,7 +38,7 @@ static void Task_DrawFieldMessage(u8 taskId)
            task->tState++;
            break;
         case 2:
-            if (RunTextPrintersAndIsPrinter0Active() != TRUE)
+            if (RunTextPrintersAndIsPrinter0Active() == FALSE)
             {
                 sFieldMessageBoxMode = FIELD_MESSAGE_BOX_HIDDEN;
                 DestroyTask(taskId);

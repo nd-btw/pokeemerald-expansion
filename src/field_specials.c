@@ -1020,7 +1020,7 @@ void FieldShowRegionMap(void)
 
 void DoPCTurnOnEffect(void)
 {
-    if (FuncIsActiveTask(Task_PCTurnOnEffect) != TRUE)
+    if (FuncIsActiveTask(Task_PCTurnOnEffect) == FALSE)
     {
         u8 taskId = CreateTask(Task_PCTurnOnEffect, 8);
         gTasks[taskId].data[0] = 0;
@@ -1155,7 +1155,7 @@ static void PCTurnOffEffect(void)
 
 void DoLotteryCornerComputerEffect(void)
 {
-    if (FuncIsActiveTask(Task_LotteryCornerComputerEffect) != TRUE)
+    if (FuncIsActiveTask(Task_LotteryCornerComputerEffect) == FALSE)
     {
         u8 taskId = CreateTask(Task_LotteryCornerComputerEffect, 8);
         gTasks[taskId].data[0] = 0;
@@ -1538,7 +1538,7 @@ bool8 FoundBlackGlasses(void)
 
 void SetRoute119Weather(void)
 {
-    if (IsMapTypeOutdoors(GetLastUsedWarpMapType()) != TRUE)
+    if (IsMapTypeOutdoors(GetLastUsedWarpMapType()) == FALSE)
     {
         SetSav1Weather(WEATHER_ROUTE119_CYCLE);
     }
@@ -1546,7 +1546,7 @@ void SetRoute119Weather(void)
 
 void SetRoute123Weather(void)
 {
-    if (IsMapTypeOutdoors(GetLastUsedWarpMapType()) != TRUE)
+    if (IsMapTypeOutdoors(GetLastUsedWarpMapType()) == FALSE)
     {
         SetSav1Weather(WEATHER_ROUTE123_CYCLE);
     }
@@ -1919,7 +1919,7 @@ static void MoveElevatorWindowLights(u16 floorDelta, bool8 descending)
 {
     static const u8 sElevatorLightCycles[] = { 3, 6, 9, 12, 15, 18, 21, 24, 27 };
 
-    if (FuncIsActiveTask(Task_MoveElevatorWindowLights) != TRUE)
+    if (FuncIsActiveTask(Task_MoveElevatorWindowLights) == FALSE)
     {
         u8 taskId = CreateTask(Task_MoveElevatorWindowLights, 8);
         gTasks[taskId].data[0] = 0;

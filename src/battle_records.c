@@ -261,7 +261,7 @@ static void UpdateTrainerCardWinsLosses(s32 battlerId)
 
 void UpdatePlayerLinkBattleRecords(s32 battlerId)
 {
-    if (InUnionRoom() != TRUE)
+    if (InUnionRoom() == FALSE)
     {
         UpdateTrainerCardWinsLosses(battlerId);
         UpdateLinkBattleRecords(
@@ -498,7 +498,7 @@ static void CB2_ShowTrainerHillRecords(void)
         gMain.state++;
         break;
     case 4:
-        if (IsDma3ManagerBusyWithBgCopy() != TRUE)
+        if (IsDma3ManagerBusyWithBgCopy() == FALSE)
         {
             ShowBg(0);
             ShowBg(3);

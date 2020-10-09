@@ -2166,7 +2166,7 @@ void LinkVSync(void)
             case LINK_STATE_CONN_ESTABLISHED:
                 if (gLink.serialIntrCounter < 9)
                 {
-                    if (gLink.hardwareError != TRUE)
+                    if (gLink.hardwareError == FALSE)
                     {
                         gLink.lag = LAG_MASTER;
                     }

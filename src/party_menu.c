@@ -1182,7 +1182,7 @@ u8 GetPartyMenuType(void)
 
 void Task_HandleChooseMonInput(u8 taskId)
 {
-    if (!gPaletteFade.active && MenuHelpers_CallLinkSomething() != TRUE)
+    if (!gPaletteFade.active && MenuHelpers_CallLinkSomething() == FALSE)
     {
         s8 *slotPtr = GetCurrentPartySlotPtr();
 
@@ -1317,7 +1317,7 @@ static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr)
         break;
     default:
         PlaySE(SE_SELECT);
-        if (DisplayCancelChooseMonYesNo(taskId) != TRUE)
+        if (DisplayCancelChooseMonYesNo(taskId) == FALSE)
         {
             if (!MenuHelpers_LinkSomething())
                 gSpecialVar_0x8004 = PARTY_SIZE + 1;
@@ -1350,7 +1350,7 @@ static bool8 DisplayCancelChooseMonYesNo(u8 taskId)
 
 static void Task_CancelChooseMonYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleCancelChooseMonYesNoInput;
@@ -1639,7 +1639,7 @@ u8 DisplayPartyMenuMessage(const u8* str, bool8 keepOpen)
 
 static void Task_PrintAndWaitForText(u8 taskId)
 {
-    if (RunTextPrintersRetIsActive(6) != TRUE)
+    if (RunTextPrintersRetIsActive(6) == FALSE)
     {
         if (gTasks[taskId].tKeepOpen == FALSE)
         {
@@ -1659,7 +1659,7 @@ bool8 IsPartyMenuTextPrinterActive(void)
 
 static void Task_WaitForLinkAndReturnToChooseMon(u8 taskId)
 {
-    if (MenuHelpers_CallLinkSomething() != TRUE)
+    if (MenuHelpers_CallLinkSomething() == FALSE)
     {
         DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON);
         gTasks[taskId].func = Task_HandleChooseMonInput;
@@ -1668,7 +1668,7 @@ static void Task_WaitForLinkAndReturnToChooseMon(u8 taskId)
 
 static void Task_ReturnToChooseMonAfterText(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         ClearStdWindowAndFrameToTransparent(6, 0);
         ClearWindowTilemap(6);
@@ -1884,7 +1884,7 @@ static void SetPartyMonsAllowedInMinigame(void)
 
 static bool16 IsMonAllowedInPokemonJump(struct Pokemon *mon)
 {
-    if (GetMonData(mon, MON_DATA_IS_EGG) != TRUE && IsSpeciesAllowedInPokemonJump(GetMonData(mon, MON_DATA_SPECIES)))
+    if (GetMonData(mon, MON_DATA_IS_EGG) == FALSE && IsSpeciesAllowedInPokemonJump(GetMonData(mon, MON_DATA_SPECIES)))
         return TRUE;
     return FALSE;
 }
@@ -1892,7 +1892,7 @@ static bool16 IsMonAllowedInPokemonJump(struct Pokemon *mon)
 
 static bool16 IsMonAllowedInDodrioBerryPicking(struct Pokemon *mon)
 {
-    if (GetMonData(mon, MON_DATA_IS_EGG) != TRUE && GetMonData(mon, MON_DATA_SPECIES) == SPECIES_DODRIO)
+    if (GetMonData(mon, MON_DATA_IS_EGG) == FALSE && GetMonData(mon, MON_DATA_SPECIES) == SPECIES_DODRIO)
         return TRUE;
     return FALSE;
 }
@@ -1930,7 +1930,7 @@ static void CancelParticipationPrompt(u8 taskId)
 
 static void Task_CancelParticipationYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleCancelParticipationYesNoInput;
@@ -2665,7 +2665,7 @@ static void Task_TryCreateSelectionWindow(u8 taskId)
 
 static void Task_HandleSelectionMenuInput(u8 taskId)
 {
-    if (!gPaletteFade.active && MenuHelpers_CallLinkSomething() != TRUE)
+    if (!gPaletteFade.active && MenuHelpers_CallLinkSomething() == FALSE)
     {
         s8 input;
         s16 *data = gTasks[taskId].data;
@@ -3080,7 +3080,7 @@ static void Task_SwitchHoldItemsPrompt(u8 taskId)
 
 static void Task_SwitchItemsYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleSwitchItemsYesNoInput;
@@ -3127,7 +3127,7 @@ static void Task_HandleSwitchItemsYesNoInput(u8 taskId)
 
 static void Task_WriteMailToGiveMonAfterText(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         sPartyMenuInternal->exitCallback = CB2_WriteMailToGiveMon;
         Task_ClosePartyMenu(taskId);
@@ -3183,7 +3183,7 @@ static void Task_UpdateHeldItemSprite(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
 
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         UpdatePartyMonHeldItemSprite(mon, &sPartyMenuBoxes[gPartyMenu.slotId]);
         if (gPartyMenu.menuType == PARTY_MENU_TYPE_STORE_PYRAMID_HELD_ITEMS)
@@ -3250,7 +3250,7 @@ static void CursorCb_Toss(u8 taskId)
 
 static void Task_TossHeldItemYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleTossHeldItemYesNoInput;
@@ -3282,7 +3282,7 @@ static void Task_TossHeldItem(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
 
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         u16 item = ITEM_NONE;
 
@@ -3334,7 +3334,7 @@ static void CursorCb_TakeMail(u8 taskId)
 
 static void Task_SendMailToPCYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleSendMailToPCYesNoInput;
@@ -3369,7 +3369,7 @@ static void Task_HandleSendMailToPCYesNoInput(u8 taskId)
 
 static void Task_LoseMailMessageYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleLoseMailMessageYesNoInput;
@@ -3602,7 +3602,7 @@ static void CursorCb_Trade2(u8 taskId)
 
 static void Task_SpinTradeYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleSpinTradeYesNoInput;
@@ -3649,7 +3649,7 @@ static void CursorCb_FieldMove(u8 taskId)
     else
     {
         // All field moves before WATERFALL are HMs.
-        if (fieldMove <= FIELD_MOVE_WATERFALL && FlagGet(FLAG_BADGE01_GET + fieldMove) != TRUE)
+        if (fieldMove <= FIELD_MOVE_WATERFALL && FlagGet(FLAG_BADGE01_GET + fieldMove) == FALSE)
         {
             DisplayPartyMenuMessage(gText_CantUseUntilNewBadge, TRUE);
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
@@ -3714,7 +3714,7 @@ static void DisplayFieldMoveExitAreaMessage(u8 taskId)
 
 static void Task_FieldMoveExitAreaYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleFieldMoveExitAreaYesNoInput;
@@ -4504,7 +4504,7 @@ static void Task_DisplayHPRestoredMessage(u8 taskId)
 
 static void Task_ClosePartyMenuAfterText(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         if (gPartyMenuUseExitCallback == FALSE)
             sPartyMenuInternal->exitCallback = NULL;
@@ -4821,7 +4821,7 @@ static void Task_LearnedMove(u8 taskId)
 
 static void Task_DoLearnedMoveFanfareAfterText(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PlayFanfare(MUS_LEVEL_UP);
         gTasks[taskId].func = Task_LearnNextMoveOrClosePartyMenu;
@@ -4845,7 +4845,7 @@ static void Task_LearnNextMoveOrClosePartyMenu(u8 taskId)
 
 static void Task_ReplaceMoveYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleReplaceMoveYesNoInput;
@@ -4871,7 +4871,7 @@ static void Task_HandleReplaceMoveYesNoInput(u8 taskId)
 
 static void Task_ShowSummaryScreenToForgetMove(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         sPartyMenuInternal->exitCallback = CB2_ShowSummaryScreenToForgetMove;
         Task_ClosePartyMenu(taskId);
@@ -4915,7 +4915,7 @@ static void Task_PartyMenuReplaceMove(u8 taskId)
     struct Pokemon *mon;
     u16 move;
 
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         mon = &gPlayerParty[gPartyMenu.slotId];
         RemoveMonPPBonus(mon, GetMoveSlotToReplace());
@@ -4936,7 +4936,7 @@ static void StopLearningMovePrompt(u8 taskId)
 
 static void Task_StopLearningMoveYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleStopLearningMoveYesNoInput;
@@ -4979,7 +4979,7 @@ static void Task_HandleStopLearningMoveYesNoInput(u8 taskId)
 
 static void Task_TryLearningNextMoveAfterText(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
         Task_TryLearningNextMove(taskId);
 }
 
@@ -5039,7 +5039,7 @@ static void UpdateMonDisplayInfoAfterRareCandy(u8 slot, struct Pokemon *mon)
 
 static void Task_DisplayLevelUpStatsPg1(u8 taskId)
 {
-    if (WaitFanfare(FALSE) && IsPartyMenuTextPrinterActive() != TRUE && ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))))
+    if (WaitFanfare(FALSE) && IsPartyMenuTextPrinterActive() == FALSE && ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))))
     {
         PlaySE(SE_SELECT);
         DisplayLevelUpStatsPg1(taskId);
@@ -5217,7 +5217,7 @@ static void UseSacredAsh(u8 taskId)
 
 static void Task_SacredAshLoop(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         if (sPartyMenuInternal->tUsedOnSlot == TRUE)
         {
@@ -5444,7 +5444,7 @@ static void Task_UpdateHeldItemSpriteAndClosePartyMenu(u8 taskId)
 {
     s8 slot = gPartyMenu.slotId;
 
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         UpdatePartyMonHeldItemSprite(&gPlayerParty[slot], &sPartyMenuBoxes[slot]);
         Task_ClosePartyMenu(taskId);
@@ -5499,7 +5499,7 @@ static void Task_DisplayGaveMailFromBagMessage(u8 taskId)
 
 static void Task_SwitchItemsFromBagYesNo(u8 taskId)
 {
-    if (IsPartyMenuTextPrinterActive() != TRUE)
+    if (IsPartyMenuTextPrinterActive() == FALSE)
     {
         PartyMenuDisplayYesNoMenu();
         gTasks[taskId].func = Task_HandleSwitchItemsFromBagYesNoInput;
@@ -6457,7 +6457,7 @@ void IsLastMonThatKnowsSurf(void)
                 }
             }
         }
-        if (AnyStorageMonWithMove(move) != TRUE)
+        if (AnyStorageMonWithMove(move) == FALSE)
             gSpecialVar_Result = TRUE;
     }
 }

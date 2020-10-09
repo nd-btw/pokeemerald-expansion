@@ -1245,7 +1245,7 @@ static void Task_TryStartLinkContest(u8 taskId)
                 }
                 return;
             case 2:
-                if (IsLinkTaskFinished() != TRUE)
+                if (IsLinkTaskFinished() == FALSE)
                     return;
                 gTasks[taskId].data[0]++;
                 break;

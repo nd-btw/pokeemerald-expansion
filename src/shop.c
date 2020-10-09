@@ -717,7 +717,7 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *nam
 static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, struct ListMenu *list)
 {
     const u8 *description;
-    if (onInit != TRUE)
+    if (onInit == FALSE)
         PlaySE(SE_SELECT);
 
     if (item != -2)

@@ -113,7 +113,7 @@ bool32 LinkContest_TryLinkStandby(s16 *state)
         (*state)++;
         return FALSE;
     default:
-        if (IsLinkTaskFinished() != TRUE)
+        if (IsLinkTaskFinished() == FALSE)
             return FALSE;
         else
             return TRUE;

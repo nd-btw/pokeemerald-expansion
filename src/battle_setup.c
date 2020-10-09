@@ -1879,7 +1879,7 @@ u16 CountBattledRematchTeams(u16 trainerId)
 {
     s32 i;
 
-    if (HasTrainerBeenFought(gRematchTable[trainerId].trainerIds[0]) != TRUE)
+    if (HasTrainerBeenFought(gRematchTable[trainerId].trainerIds[0]) == FALSE)
         return 0;
 
     for (i = 1; i < REMATCHES_COUNT; i++)

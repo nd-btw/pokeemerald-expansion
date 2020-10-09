@@ -124,7 +124,7 @@ void AgbMain()
 
     gSoftResetDisabled = FALSE;
 
-    if (gFlashMemoryPresent != TRUE)
+    if (gFlashMemoryPresent == FALSE)
         SetMainCallback2(NULL);
 
     gLinkTransferringData = FALSE;

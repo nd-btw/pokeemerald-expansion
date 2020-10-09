@@ -573,7 +573,7 @@ static void Task_ResetRtcScreen(u8 taskId)
         }
         break;
     case 2:
-        if (gTasks[data[1]].isActive != TRUE)
+        if (gTasks[data[1]].isActive == FALSE)
         {
             ClearStdWindowAndFrameToTransparent(0, FALSE);
             ShowMessage(gText_PleaseResetTime);

@@ -256,7 +256,7 @@ static void Task_Fanfare(u8 taskId)
 
 static void CreateFanfareTask(void)
 {
-    if (FuncIsActiveTask(Task_Fanfare) != TRUE)
+    if (FuncIsActiveTask(Task_Fanfare) == FALSE)
         CreateTask(Task_Fanfare, 80);
 }
 
@@ -525,7 +525,7 @@ static void Task_DuckBGMForPokemonCry(u8 taskId)
 
 static void RestoreBGMVolumeAfterPokemonCry(void)
 {
-    if (FuncIsActiveTask(Task_DuckBGMForPokemonCry) != TRUE)
+    if (FuncIsActiveTask(Task_DuckBGMForPokemonCry) == FALSE)
         CreateTask(Task_DuckBGMForPokemonCry, 80);
 }
 

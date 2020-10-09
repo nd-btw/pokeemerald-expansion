@@ -171,7 +171,7 @@ static void Task_ReturnToFieldCableLink(u8 taskId)
         task->data[0]++;
         break;
     case 1:
-        if (gTasks[task->data[1]].isActive != TRUE)
+        if (gTasks[task->data[1]].isActive == FALSE)
         {
             WarpFadeInScreen();
             task->data[0]++;
@@ -358,7 +358,7 @@ static void Task_ExitDoor(u8 taskId)
         }
         break;
     case 3:
-        if (task->data[1] < 0 || gTasks[task->data[1]].isActive != TRUE)
+        if (task->data[1] < 0 || gTasks[task->data[1]].isActive == FALSE)
         {
             UnfreezeObjectEvents();
             task->data[0] = 4;
@@ -700,7 +700,7 @@ static void Task_DoDoorWarp(u8 taskId)
         task->data[0] = 1;
         break;
     case 1:
-        if (task->data[1] < 0 || gTasks[task->data[1]].isActive != TRUE)
+        if (task->data[1] < 0 || gTasks[task->data[1]].isActive == FALSE)
         {
             u8 objEventId;
             objEventId = GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_PLAYER, 0, 0);
@@ -722,7 +722,7 @@ static void Task_DoDoorWarp(u8 taskId)
         }
         break;
     case 3:
-        if (task->data[1] < 0 || gTasks[task->data[1]].isActive != TRUE)
+        if (task->data[1] < 0 || gTasks[task->data[1]].isActive == FALSE)
         {
             task->data[0] = 4;
         }
@@ -1017,7 +1017,7 @@ static void Task_TeleportTileWarpExit(u8 taskId)
         gTasks[taskId].data[0]++;
         break;
     case 1:
-        if (WaitForWeatherFadeIn() && sub_808D1B4() != TRUE)
+        if (WaitForWeatherFadeIn() && sub_808D1B4() == FALSE)
         {
             UnfreezeObjectEvents();
             ScriptContext2_Disable();

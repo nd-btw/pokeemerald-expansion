@@ -587,7 +587,7 @@ static void Task_ShowContestResults(u8 taskId)
                 IncrementGameStat(GAME_STAT_WON_LINK_CONTEST);
                 gSpecialVar_0x8005 = TVSHOW_CONTEST_LIVE_UPDATES;
                 InterviewBefore();
-                if (gSpecialVar_Result != TRUE)
+                if (gSpecialVar_Result == FALSE)
                     InterviewAfter();
             }
 

@@ -1133,7 +1133,7 @@ void PutPokemonTodayCaughtOnAir(void)
         if (!rbernoulli(1, 1) && StringCompare(gSpeciesNames[gBattleResults.caughtMonSpecies], gBattleResults.caughtMonNick))
         {
             sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-            if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_POKEMON_TODAY_CAUGHT, FALSE) != TRUE)
+            if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_POKEMON_TODAY_CAUGHT, FALSE) == FALSE)
             {
                 for (i = 0; i < 11; i ++)
                 {
@@ -1214,7 +1214,7 @@ void PutPokemonTodayFailedOnTheAir(void)
         if (ct > 2 && (gBattleOutcome == B_OUTCOME_MON_FLED || gBattleOutcome == B_OUTCOME_WON))
         {
             sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-            if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_POKEMON_TODAY_FAILED, FALSE) != TRUE)
+            if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_POKEMON_TODAY_FAILED, FALSE) == FALSE)
             {
                 show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
                 show->pokemonTodayFailed.kind = TVSHOW_POKEMON_TODAY_FAILED;
@@ -1585,7 +1585,7 @@ void SaveRecordedItemPurchasesForTVShow(void)
      && !rbernoulli(1, 3))
     {
         sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-        if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_SMART_SHOPPER, FALSE) != TRUE)
+        if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_SMART_SHOPPER, FALSE) == FALSE)
         {
             TV_SortPurchasesByQuantity();
             if (gMartPurchaseHistory[0].quantity >= 20)
@@ -1660,7 +1660,7 @@ void PutLilycoveContestLadyShowOnTheAir(void)
     TVShow *show;
 
     sub_80EFA88();
-    if (gSpecialVar_Result != TRUE)
+    if (gSpecialVar_Result == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         BufferContestLadyLanguage(&show->contestLiveUpdates2.language);
@@ -1862,7 +1862,7 @@ void PutFishingAdviceShowOnTheAir(void)
     TVShow *show;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_FISHING_ADVICE, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_FISHING_ADVICE, FALSE) == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->pokemonAngler.kind = TVSHOW_FISHING_ADVICE;
@@ -1905,7 +1905,7 @@ void sub_80EDA80(void)
     if (!rbernoulli(1, 1))
     {
         sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-        if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_WORLD_OF_MASTERS, FALSE) != TRUE)
+        if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_WORLD_OF_MASTERS, FALSE) == FALSE)
         {
             show2 = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
             show2->worldOfMasters.kind = TVSHOW_WORLD_OF_MASTERS;
@@ -1979,7 +1979,7 @@ void sub_80EDC60(const u16 *words)
     TVShow *show;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_TREND_WATCHER, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_TREND_WATCHER, FALSE) == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->trendWatcher.kind = TVSHOW_TREND_WATCHER;
@@ -1998,7 +1998,7 @@ void TryPutTreasureInvestigatorsOnAir(void)
     TVShow *show;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_TREASURE_INVESTIGATORS, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_TREASURE_INVESTIGATORS, FALSE) == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->treasureInvestigators.kind = TVSHOW_TREASURE_INVESTIGATORS;
@@ -2019,7 +2019,7 @@ void AlertTVOfNewCoinTotal(u16 nCoinsPaidOut)
     u16 nCoinsWon;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_FIND_THAT_GAMER, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_FIND_THAT_GAMER, FALSE) == FALSE)
     {
         flag = FALSE;
         switch (sFindThatGamerWhichGame)
@@ -2222,7 +2222,7 @@ void sub_80EE184(void)
     u16 balls;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_BREAKING_NEWS, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_BREAKING_NEWS, FALSE) == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->breakingNews.kind = TVSHOW_BREAKING_NEWS;
@@ -2293,7 +2293,7 @@ void TryPutLotteryWinnerReportOnAir(void)
     TVShow *show;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_LOTTO_WINNER, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_LOTTO_WINNER, FALSE) == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->lottoWinner.kind = TVSHOW_LOTTO_WINNER;
@@ -2313,7 +2313,7 @@ void sub_80EE35C(u16 foeSpecies, u16 species, u8 moveIdx, const u16 *movePtr, u1
     u8 j;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_BATTLE_SEMINAR, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_BATTLE_SEMINAR, FALSE) == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->battleSeminar.kind = TVSHOW_BATTLE_SEMINAR;
@@ -2342,7 +2342,7 @@ void sub_80EE44C(u8 nMonsCaught, u8 nPkblkUsed)
     TVShow *show;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_SAFARI_FAN_CLUB, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_SAFARI_FAN_CLUB, FALSE) == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->safariFanClub.kind = TVSHOW_SAFARI_FAN_CLUB;
@@ -2360,7 +2360,7 @@ void TryPutSpotTheCutiesOnAir(struct Pokemon *pokemon, u8 ribbonMonDataIdx)
     TVShow *show;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_CUTIES, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_CUTIES, FALSE) == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->cuties.kind = TVSHOW_CUTIES;
@@ -2435,7 +2435,7 @@ void TrySetUpTrainerFanClubSpecial(void)
     TVShow *show;
 
     sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_TRAINER_FAN_CLUB, FALSE) != TRUE)
+    if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_TRAINER_FAN_CLUB, FALSE) == FALSE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
         show->trainerFanClub.kind = TVSHOW_TRAINER_FAN_CLUB;
@@ -2546,7 +2546,7 @@ void TryPutSecretBaseSecretsOnAir(void)
     TVShow *show;
     u8 strbuf[32];
 
-    if (HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_SECRET_BASE_SECRETS, FALSE) != TRUE)
+    if (HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_SECRET_BASE_SECRETS, FALSE) == FALSE)
     {
         sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
         if (sCurTVShowSlot != -1)
@@ -2657,10 +2657,10 @@ static void sub_80EED88(void)
     if (FlagGet(FLAG_SYS_GAME_CLEAR))
     {
         sCurTVShowSlot = sub_80EEE30(gSaveBlock1Ptr->pokeNews);
-        if (sCurTVShowSlot != -1 && rbernoulli(1, 100) != TRUE)
+        if (sCurTVShowSlot != -1 && rbernoulli(1, 100) == FALSE)
         {
             newsKind = (Random() % 4) + POKENEWS_SLATEPORT;
-            if (sub_80EF0E4(newsKind) != TRUE)
+            if (sub_80EF0E4(newsKind) == FALSE)
             {
                 gSaveBlock1Ptr->pokeNews[sCurTVShowSlot].kind = newsKind;
                 gSaveBlock1Ptr->pokeNews[sCurTVShowSlot].days = 4;
@@ -3221,7 +3221,7 @@ u16 TV_GetSomeOtherSpeciesAlreadySeenByPlayer(u16 passedSpecies)
 
     species = (Random() % (NUM_SPECIES - 1)) + 1;
     initSpecies = species;
-    while (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_SEEN) != TRUE || species == passedSpecies)
+    while (GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_SEEN) == FALSE || species == passedSpecies)
     {
         if (species == SPECIES_NONE + 1)
         {
@@ -3965,7 +3965,7 @@ static void sub_80F0B64(void)
 {
     u16 i;
 
-    if (FlagGet(FLAG_SYS_GAME_CLEAR) != TRUE)
+    if (FlagGet(FLAG_SYS_GAME_CLEAR) == FALSE)
     {
         for (i = 0; i < LAST_TVSHOW_IDX; i ++)
         {
@@ -4140,7 +4140,7 @@ static void sub_80F0F24(void)
 {
     u8 i;
 
-    if (FlagGet(FLAG_SYS_GAME_CLEAR) != TRUE)
+    if (FlagGet(FLAG_SYS_GAME_CLEAR) == FALSE)
     {
         for (i = 0; i < POKE_NEWS_COUNT; i ++)
         {

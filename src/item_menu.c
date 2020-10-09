@@ -642,7 +642,7 @@ void VBlankCB_BagMenuRun(void)
 
 void CB2_Bag(void)
 {
-    while(MenuHelpers_CallLinkSomething() != TRUE && SetupBagMenu() != TRUE && MenuHelpers_LinkSomething() != TRUE) {};
+    while(MenuHelpers_CallLinkSomething() == FALSE && SetupBagMenu() == FALSE && MenuHelpers_LinkSomething() == FALSE) {};
 }
 
 bool8 SetupBagMenu(void)
@@ -786,7 +786,7 @@ bool8 LoadBagMenu_Graphics(void)
             gBagMenu->graphicsLoadState++;
             break;
         case 1:
-            if (FreeTempTileDataBuffersIfPossible() != TRUE)
+            if (FreeTempTileDataBuffersIfPossible() == FALSE)
             {
                 LZDecompressWram(gBagScreen_GfxTileMap, gBagMenu->tilemapBuffer);
                 gBagMenu->graphicsLoadState++;
@@ -900,7 +900,7 @@ void GetItemName(s8 *dest, u16 itemId)
 
 void BagMenu_MoveCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu *list)
 {
-    if (onInit != TRUE)
+    if (onInit == FALSE)
     {
         PlaySE(SE_RG_BAG_CURSOR);
         ShakeBagSprite();
@@ -1026,7 +1026,7 @@ void BagDestroyPocketScrollArrowPair(void)
 
 void CreatePocketSwitchArrowPair(void)
 {
-    if (gBagMenu->pocketSwitchDisabled != TRUE && gBagMenu->pocketSwitchArrowsTask == 0xFF)
+    if (gBagMenu->pocketSwitchDisabled == FALSE && gBagMenu->pocketSwitchArrowsTask == 0xFF)
         gBagMenu->pocketSwitchArrowsTask = AddScrollIndicatorArrowPair(&sBagScrollArrowsTemplate, &gBagPositionStruct.unk6);
 }
 
@@ -1185,7 +1185,7 @@ void Task_BagMenu_HandleInput(u8 taskId)
     u16* cursorPos = &gBagPositionStruct.cursorPosition[gBagPositionStruct.pocket];
     s32 listPosition;
 
-    if (MenuHelpers_CallLinkSomething() != TRUE && !gPaletteFade.active)
+    if (MenuHelpers_CallLinkSomething() == FALSE && !gPaletteFade.active)
     {
         switch (GetSwitchBagPocketDirection())
         {
@@ -1416,7 +1416,7 @@ static void Task_HandleSwappingItemsInput(u8 taskId)
     s16* data = gTasks[taskId].data;
     int input;
 
-    if (MenuHelpers_CallLinkSomething() != TRUE)
+    if (MenuHelpers_CallLinkSomething() == FALSE)
     {
         if (JOY_NEW(SELECT_BUTTON))
         {
@@ -1681,7 +1681,7 @@ void Task_ItemContext_FieldOrBattle(u8 taskId)
 
 void Task_HandleInBattleItemMenuInput(u8 taskId)
 {
-    if (MenuHelpers_CallLinkSomething() != TRUE)
+    if (MenuHelpers_CallLinkSomething() == FALSE)
     {
         s8 selection = Menu_ProcessInputNoWrap();
         switch (selection)
@@ -1702,7 +1702,7 @@ void Task_HandleInBattleItemMenuInput(u8 taskId)
 
 void Task_HandleOutOfBattleItemMenuInput(u8 taskId)
 {
-    if (MenuHelpers_CallLinkSomething() != TRUE)
+    if (MenuHelpers_CallLinkSomething() == FALSE)
     {
         s8 cursorPos = Menu_GetCursorPos();
         if (JOY_NEW(DPAD_UP))

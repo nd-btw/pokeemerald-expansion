@@ -323,7 +323,7 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
     objectEventId = GetObjectEventIdByXYZ(position->x, position->y, position->height);
     if (objectEventId == OBJECT_EVENTS_COUNT || gObjectEvents[objectEventId].localId == OBJ_EVENT_ID_PLAYER)
     {
-        if (MetatileBehavior_IsCounter(metatileBehavior) != TRUE)
+        if (MetatileBehavior_IsCounter(metatileBehavior) == FALSE)
             return NULL;
 
         // Look for an object event on the other side of the counter.
@@ -782,16 +782,16 @@ static bool8 TryStartWarpEventScript(struct MapPosition *position, u16 metatileB
 
 static bool8 IsWarpMetatileBehavior(u16 metatileBehavior)
 {
-    if (MetatileBehavior_IsWarpDoor(metatileBehavior) != TRUE
-     && MetatileBehavior_IsLadder(metatileBehavior) != TRUE
-     && MetatileBehavior_IsEscalator(metatileBehavior) != TRUE
-     && MetatileBehavior_IsNonAnimDoor(metatileBehavior) != TRUE
-     && MetatileBehavior_IsLavaridgeB1FWarp(metatileBehavior) != TRUE
-     && MetatileBehavior_IsLavaridge1FWarp(metatileBehavior) != TRUE
-     && MetatileBehavior_IsAquaHideoutWarp(metatileBehavior) != TRUE
-     && MetatileBehavior_IsMtPyreHole(metatileBehavior) != TRUE
-     && MetatileBehavior_IsMossdeepGymWarp(metatileBehavior) != TRUE
-     && MetatileBehavior_IsWarpOrBridge(metatileBehavior) != TRUE)
+    if (MetatileBehavior_IsWarpDoor(metatileBehavior) == FALSE
+     && MetatileBehavior_IsLadder(metatileBehavior) == FALSE
+     && MetatileBehavior_IsEscalator(metatileBehavior) == FALSE
+     && MetatileBehavior_IsNonAnimDoor(metatileBehavior) == FALSE
+     && MetatileBehavior_IsLavaridgeB1FWarp(metatileBehavior) == FALSE
+     && MetatileBehavior_IsLavaridge1FWarp(metatileBehavior) == FALSE
+     && MetatileBehavior_IsAquaHideoutWarp(metatileBehavior) == FALSE
+     && MetatileBehavior_IsMtPyreHole(metatileBehavior) == FALSE
+     && MetatileBehavior_IsMossdeepGymWarp(metatileBehavior) == FALSE
+     && MetatileBehavior_IsWarpOrBridge(metatileBehavior) == FALSE)
         return FALSE;
     return TRUE;
 }

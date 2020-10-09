@@ -979,7 +979,7 @@ static void RfuFunc_SendKeysToRfu(void)
 {
     if (gReceivedRemoteLinkPlayers
         && gHeldKeyCodeToSend != LINK_KEY_CODE_NULL
-        && gLinkTransferringData != TRUE)
+        && gLinkTransferringData == FALSE)
     {
         sHeldKeyCount++;
         gHeldKeyCodeToSend |= (sHeldKeyCount << 8);
@@ -1144,7 +1144,7 @@ static bool8 sub_800FC88(void)
 
     for (i = 0; i < Rfu.playerCount; i++)
     {
-        if (Rfu.recvBlock[i].receiving != 2 || Rfu.blockReceived[i] != TRUE)
+        if (Rfu.recvBlock[i].receiving != 2 || Rfu.blockReceived[i] == FALSE)
             return FALSE;
     }
     return TRUE;

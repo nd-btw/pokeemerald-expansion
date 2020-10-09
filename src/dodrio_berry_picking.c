@@ -3747,7 +3747,7 @@ static void sub_8028CF4(struct Sprite *sprite)
     u8 i;
     static const u8 array[] = {30, 20};
 
-    if (sprite->sKeepPosX != TRUE)
+    if (sprite->sKeepPosX == FALSE)
     {
         for (i = 0; i < 2; i++)
         {

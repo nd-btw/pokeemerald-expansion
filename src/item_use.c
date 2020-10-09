@@ -118,7 +118,7 @@ static void SetUpItemUseCallback(u8 taskId)
 
 static void SetUpItemUseOnFieldCallback(u8 taskId)
 {
-    if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    if (gTasks[taskId].tUsingRegisteredKeyItem == FALSE)
     {
         gFieldCallback = FieldCB_UseItemOnField;
         SetUpItemUseCallback(taskId);
@@ -643,7 +643,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
     {
         DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
     }
-    else if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    else if (gTasks[taskId].tUsingRegisteredKeyItem == FALSE)
     {
         gBagMenu->exitCallback = CB2_OpenPokeblockCaseOnField;
         Task_FadeAndCloseBagMenu(taskId);

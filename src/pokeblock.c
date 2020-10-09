@@ -627,7 +627,7 @@ static bool8 LoadPokeblockMenuGfx(void)
         sPokeblockMenu->gfxState++;
         break;
     case 1:
-        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        if (FreeTempTileDataBuffersIfPossible() == FALSE)
         {
             LZDecompressWram(gMenuPokeblock_Tilemap, sPokeblockMenu->tilemap);
             sPokeblockMenu->gfxState++;
@@ -734,7 +734,7 @@ static void PutPokeblockListMenuString(u8 *dst, u16 pkblId)
 
 static void MovePokeblockMenuCursor(s32 pkblId, bool8 arg1, struct ListMenu *arg2)
 {
-    if (arg1 != TRUE)
+    if (arg1 == FALSE)
     {
         PlaySE(SE_SELECT);
         gSprites[sPokeblockMenu->pokeblockCaseSpriteId].callback = sub_8136470;
@@ -982,7 +982,7 @@ static void Task_HandlePokeblockMenuInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
-    if (!gPaletteFade.active && MenuHelpers_CallLinkSomething() != TRUE)
+    if (!gPaletteFade.active && MenuHelpers_CallLinkSomething() == FALSE)
     {
         if (JOY_NEW(SELECT_BUTTON))
         {

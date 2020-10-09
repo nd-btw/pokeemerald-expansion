@@ -4052,7 +4052,7 @@ static void SpriteCB_UnstickBall_Shroomish(struct Sprite *sprite)
     switch (sprite->sBallAngle)
     {
     case 0:
-        if (sprite->sStuckOnWheelLeft != TRUE)
+        if (sprite->sStuckOnWheelLeft == FALSE)
         {
             slotOffset = sprite->data[7];
             ballFallDist = (slotOffset * sRouletteTables[sRoulette->tableId].randDistanceHigh + (sRouletteTables[sRoulette->tableId].randDistanceLow - 1));
@@ -4144,7 +4144,7 @@ static void SpriteCB_UnstickBall_Taillow(struct Sprite *sprite)
     switch (sprite->sBallAngle)
     {
     case 90:
-        if (sprite->sStuckOnWheelLeft != TRUE)
+        if (sprite->sStuckOnWheelLeft == FALSE)
         {
             sprite->callback = &SpriteCB_UnstickBall_TaillowPickUp;
             sprite->data[2] = 0;

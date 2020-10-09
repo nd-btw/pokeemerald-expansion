@@ -938,7 +938,7 @@ void CopyItemName_PlayerPC(u8 *string, u16 itemId)
 
 static void ItemStorage_MoveCursor(s32 id, bool8 b, struct ListMenu *thisMenu)
 {
-    if (b != TRUE)
+    if (b == FALSE)
         PlaySE(SE_SELECT);
     if (gUnknown_0203BCC4->unk666 == 0xFF)
     {

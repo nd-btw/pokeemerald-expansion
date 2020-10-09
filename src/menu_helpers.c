@@ -283,7 +283,7 @@ bool8 sub_8122148(u16 itemId)
         return TRUE;
     else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRADE_CENTER) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRADE_CENTER))
         return FALSE;
-    else if (InUnionRoom() != TRUE)
+    else if (InUnionRoom() == FALSE)
         return TRUE;
     else
         return FALSE;
@@ -291,9 +291,9 @@ bool8 sub_8122148(u16 itemId)
 
 bool8 itemid_80BF6D8_mail_related(u16 itemId)
 {
-    if (IsUpdateLinkStateCBActive() != TRUE && InUnionRoom() != TRUE)
+    if (IsUpdateLinkStateCBActive() == FALSE && InUnionRoom() == FALSE)
         return TRUE;
-    else if (ItemIsMail(itemId) != TRUE)
+    else if (ItemIsMail(itemId) == FALSE)
         return TRUE;
     else
         return FALSE;
@@ -319,7 +319,7 @@ bool8 MenuHelpers_CallLinkSomething(void)
 {
     if (sub_81221D0() == TRUE)
         return TRUE;
-    else if (sub_800B504() != TRUE)
+    else if (sub_800B504() == FALSE)
         return FALSE;
     else
         return TRUE;

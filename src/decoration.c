@@ -906,7 +906,7 @@ static void CopyDecorationMenuItemName(u8 *dest, u16 decoration)
 
 static void DecorationItemsMenu_OnCursorMove(s32 itemIndex, bool8 flag, struct ListMenu *menu)
 {
-    if (flag != TRUE)
+    if (flag == FALSE)
         PlaySE(SE_SELECT);
 
     PrintDecorationItemDescription(itemIndex);
@@ -1095,7 +1095,7 @@ static void IdentifyOwnedDecorationsCurrentlyInUseInternal(u8 taskId)
         {
             for (j = 0; j < gDecorationInventories[sCurDecorationCategory].size; j++)
             {
-                if (gCurDecorationItems[j] == gSaveBlock1Ptr->playerRoomDecorations[i] && IsDecorationIndexInSecretBase(j + 1) != TRUE)
+                if (gCurDecorationItems[j] == gSaveBlock1Ptr->playerRoomDecorations[i] && IsDecorationIndexInSecretBase(j + 1) == FALSE)
                 {
                     for (k = 0; k < count && sPlayerRoomItemsIndicesBuffer[k] != j + 1; k++);
                     if (k == count)
@@ -1474,7 +1474,7 @@ static void AttemptCancelPlaceDecoration(u8 taskId)
 // Note: behaviorBy is pre-anded with METATILE_ELEVATION_MASK.
 static bool8 IsNonBlockNonElevated(u8 behaviorAt, u16 behaviorBy)
 {
-    if (MetatileBehavior_IsBlockDecoration(behaviorAt) != TRUE || behaviorBy != 0)
+    if (MetatileBehavior_IsBlockDecoration(behaviorAt) == FALSE || behaviorBy != 0)
         return FALSE;
     return TRUE;
 }
@@ -1488,7 +1488,7 @@ static bool8 IsntInitialPosition(u8 taskId, s16 x, s16 y, u16 behaviorBy)
 
 static bool8 IsFloorOrBoardAndHole(u16 behaviorAt, const struct Decoration *decoration)
 {
-    if (MetatileBehavior_IsBlockDecoration(behaviorAt) != TRUE)
+    if (MetatileBehavior_IsBlockDecoration(behaviorAt) == FALSE)
     {
         if (decoration->id == DECOR_SOLID_BOARD && MetatileBehavior_IsSecretBaseHole(behaviorAt) == TRUE)
             return TRUE;
@@ -2550,7 +2550,7 @@ static void AttemptMarkDecorUnderCursorForRemoval(u8 taskId)
     u32 var2;
 
     sCurDecorSelectedInRearrangement = 0;
-    if (AttemptMarkSpriteDecorUnderCursorForRemoval(taskId) != TRUE)
+    if (AttemptMarkSpriteDecorUnderCursorForRemoval(taskId) == FALSE)
     {
         // Not a sprite.
         for (i = 0; i < sDecorationContext.size; i++)

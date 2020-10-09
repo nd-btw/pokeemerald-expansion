@@ -937,7 +937,7 @@ static void BuildRegistryMenuItems(u8 taskId)
 
 static void RegistryMenu_OnCursorMove(s32 unused, bool8 flag, struct ListMenu *menu)
 {
-    if (flag != TRUE)
+    if (flag == FALSE)
         PlaySE(SE_SELECT);
 }
 

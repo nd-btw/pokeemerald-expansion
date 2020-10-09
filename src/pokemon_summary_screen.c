@@ -1218,7 +1218,7 @@ static void VBlank(void)
 
 static void CB2_InitSummaryScreen(void)
 {
-    while (MenuHelpers_CallLinkSomething() != TRUE && LoadGraphics() != TRUE && MenuHelpers_LinkSomething() != TRUE);
+    while (MenuHelpers_CallLinkSomething() == FALSE && LoadGraphics() == FALSE && MenuHelpers_LinkSomething() == FALSE);
 }
 
 static bool8 LoadGraphics(void)
@@ -1564,7 +1564,7 @@ static void BeginCloseSummaryScreen(u8 taskId)
 
 static void CloseSummaryScreen(u8 taskId)
 {
-    if (MenuHelpers_CallLinkSomething() != TRUE && !gPaletteFade.active)
+    if (MenuHelpers_CallLinkSomething() == FALSE && !gPaletteFade.active)
     {
         SetMainCallback2(sMonSummaryScreen->callback);
         gLastViewedMonIndex = sMonSummaryScreen->curMonIndex;
@@ -1582,7 +1582,7 @@ static void CloseSummaryScreen(u8 taskId)
 
 static void Task_HandleInput(u8 taskId)
 {
-    if (MenuHelpers_CallLinkSomething() != TRUE && !gPaletteFade.active)
+    if (MenuHelpers_CallLinkSomething() == FALSE && !gPaletteFade.active)
     {
         if (JOY_NEW(DPAD_UP))
         {
@@ -2105,7 +2105,7 @@ static void Task_HandleInput_MovePositionSwitch(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
 
-    if (MenuHelpers_CallLinkSomething() != TRUE)
+    if (MenuHelpers_CallLinkSomething() == FALSE)
     {
         if (JOY_NEW(DPAD_UP))
         {
@@ -2246,9 +2246,9 @@ static void Task_HandleReplaceMoveInput(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
 
-    if (MenuHelpers_CallLinkSomething() != TRUE)
+    if (MenuHelpers_CallLinkSomething() == FALSE)
     {
-        if (gPaletteFade.active != TRUE)
+        if (gPaletteFade.active == FALSE)
         {
             if (JOY_NEW(DPAD_UP))
             {
@@ -2300,7 +2300,7 @@ static bool8 CanReplaceMove(void)
 {
     if (sMonSummaryScreen->firstMoveIndex == MAX_MON_MOVES
         || sMonSummaryScreen->newMove == MOVE_NONE
-        || IsMoveHm(sMonSummaryScreen->summary.moves[sMonSummaryScreen->firstMoveIndex]) != TRUE)
+        || IsMoveHm(sMonSummaryScreen->summary.moves[sMonSummaryScreen->firstMoveIndex]) == FALSE)
         return TRUE;
     else
         return FALSE;
@@ -3120,7 +3120,7 @@ static void Task_PrintInfoPage(u8 taskId)
 static void PrintMonOTName(void)
 {
     int x, windowId;
-    if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
+    if (InBattleFactory() == FALSE && InSlateportBattleTent() == FALSE)
     {
         windowId = AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER);
         PrintTextOnWindow(windowId, gText_OTSlash, 0, 1, 0, 1);
@@ -3135,7 +3135,7 @@ static void PrintMonOTName(void)
 static void PrintMonOTID(void)
 {
     int xPos;
-    if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
+    if (InBattleFactory() == FALSE && InSlateportBattleTent() == FALSE)
     {
         ConvertIntToDecimalStringN(StringCopy(gStringVar1, gText_IDNumber2), (u16)sMonSummaryScreen->summary.OTID, STR_CONV_MODE_LEADING_ZEROS, 5);
         xPos = GetStringRightAlignXOffset(1, gStringVar1, 56);

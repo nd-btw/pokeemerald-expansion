@@ -682,7 +682,7 @@ static bool8 LoadMonAndSceneGfx(struct Pokemon *mon)
         sPokeblockFeed->loadGfxState++;
         break;
     case 7:
-        if (FreeTempTileDataBuffersIfPossible() != TRUE)
+        if (FreeTempTileDataBuffersIfPossible() == FALSE)
         {
             LZDecompressWram(gUnknown_08D9BA44, sPokeblockFeed->tilemapBuffer);
             sPokeblockFeed->loadGfxState++;
@@ -764,7 +764,7 @@ static void LaunchPokeblockFeedTask(void)
 
 static void Task_WaitForAtePokeblockText(u8 taskId)
 {
-    if (RunTextPrintersRetIsActive(0) != TRUE)
+    if (RunTextPrintersRetIsActive(0) == FALSE)
         gTasks[taskId].func = Task_PaletteFadeToReturn;
 }
 

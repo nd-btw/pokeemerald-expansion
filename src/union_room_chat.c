@@ -1336,7 +1336,7 @@ static void Chat_Disbanded(void)
         }
         break;
     case 2:
-        if (IsDisplaySubtaskActive(0) != TRUE && IsLinkTaskFinished() && !sub_8011A9C())
+        if (IsDisplaySubtaskActive(0) == FALSE && IsLinkTaskFinished() && !sub_8011A9C())
         {
             SetCloseLinkCallback();
             sChat->exitDelayTimer = 0;

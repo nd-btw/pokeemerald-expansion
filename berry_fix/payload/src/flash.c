@@ -746,7 +746,7 @@ bool32 flash_maincb_reset_pacifidlog_tm(void)
     if (gRtcUTCTime.days < 0)
         return FALSE;
     *get_var_addr(VAR_PACIFIDLOG_TM_RECEIVED_DAY) = 1;
-    if (flash_write_save_block_chunks_check_damage(0) != TRUE)
+    if (flash_write_save_block_chunks_check_damage(0) == FALSE)
         return FALSE;
     return TRUE;
 }
