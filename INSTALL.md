@@ -1,38 +1,23 @@
 # Prerequisites
 
-| Linux | macOS | Windows 10
-| - | - | -
-| none | [Xcode Command Line Tools Package][xcode] | [Windows Terminal][terminal] and [Windows Subsystem for Linux (WSL)][wsl]
-
-[xcode]: https://developer.apple.com/library/archive/technotes/tn2339/_index.html
-[terminal]: https://docs.microsoft.com/windows/terminal/get-started
-[wsl]: https://docs.microsoft.com/windows/wsl/install-win10
-
 Independently from the specific OS, make sure that the `gcc`, `g++`, `make`, `git`, and `libpng-dev` packages or their equivalents are installed and accessible to the development tools that are used by the project (this means that, for example, on Windows, the packages have to be installed in the WSL environment). The package names and installation methods may vary with each OS.
 
 Install the devkitARM toolchain of devkitPro as per [the instructions on their wiki](https://devkitpro.org/wiki/devkitPro_pacman). On Windows, follow the Linux instructions inside WSL as any steps about the Windows installer do not apply.
-
-**Debian-based distro users:** This applies to Debian, Ubuntu, and similar distros, including in WSL. If necessary, install the `libarchive13`, `pkg-config`, and `gdebi-core` packages to be able to install devkitPro.
-
-**Windows 10 users:** WSL 2 is available in the 1903 release (build 18362) and later, therefore existing WSL 1 and [prerelease WSL](https://docs.microsoft.com/windows/wsl/install-legacy) users are recommended to update. Right-click the Start button or press `Win`+`X`, choose Run, and run `ms-settings:about` to determine the Windows version. Also check Windows Update to make sure your installation is up-to-date.
-
-**Windows 7 and 8.1 users:** pret is no longer focusing on support in pokeemerald for [old versions of Windows](https://support.microsoft.com/help/13853) so consider upgrading to a current release of Windows 10 or try a third-party guide like [this one](https://www.pokecommunity.com/showthread.php?t=425246) instead.
-
 
 # Installation
 
 To set up the repository:
 
-	git clone https://github.com/pret/pokeemerald
+	git clone https://github.com/nadiadavis/ndpoke
 	git clone https://github.com/pret/agbcc
 
 	cd ./agbcc
 	./build.sh
-	./install.sh ../pokeemerald
+	./install.sh ../ndpoke
 
-	cd ../pokeemerald
+	cd ../ndpoke
 
-To build **pokeemerald.gba** for the first time and confirm it matches the official ROM image:
+To build **ndpoke.gba** for the first time and confirm it matches the official ROM image:
 
 	make compare
 
